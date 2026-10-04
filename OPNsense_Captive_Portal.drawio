@@ -1,0 +1,202 @@
+<mxfile host="Electron" modified="2026-10-04T07:00:00.000Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="OPNsenseCaptivePortal1" version="22.0.3" type="device" pages="2">
+  <diagram name="Topology" id="cp-59">
+    <mxGraphModel dx="1400" dy="900" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="#114B5F" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cp-1" value='&lt;font style="font-size: 30px;" color="#FFFFFF"&gt;&lt;b&gt;OPNsense Captive Portal - Guest Network Topology&lt;/b&gt;&lt;/font&gt;' style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="40" y="10" width="1100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-2" value='&lt;font style="font-size: 15px;" color="#E4FDE1"&gt;Guest clients land in an isolated VLAN. OPNsense intercepts their web traffic and holds it at the portal login page until they authenticate. Trusted LAN is never reachable from the guest zone.&lt;/font&gt;' style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="40" y="60" width="1100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-3" value='&lt;font style="font-size: 24px;" color="#FFFFFF"&gt;&lt;b&gt;Internet&lt;/b&gt;&lt;/font&gt;' style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#FFFFFF;strokeColor=#006EAF;fontSize=22;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="420" y="130" width="320" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#E4FDE1;strokeWidth=3;dashed=1;dashPattern=12 8;fontColor=#E4FDE1;fontSize=20;fontStyle=1;align=left;verticalAlign=top;spacingLeft=12;spacingTop=6;" parent="1" vertex="1">
+          <mxGeometry x="330" y="350" width="500" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-5" value="" style="fontColor=#FFFFFF;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#F45B69;strokeColor=#FFFFFF;gradientColor=none;strokeWidth=2;shape=mxgraph.networks.firewall;fontFamily=Helvetica;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="380" y="390" width="130" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-6" value='&lt;font style="font-size: 26px;" color="#FFFFFF"&gt;&lt;b&gt;OPNsense&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 14px;" color="#E4FDE1"&gt;Firewall / Router / Captive Portal&lt;/font&gt;' style="text;strokeColor=none;fillColor=none;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="520" y="380" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-7" value='&lt;font style="font-size: 16px;" color="#FF0000"&gt;&lt;b&gt;WAN&lt;/b&gt;&lt;/font&gt; - DHCP / PPPoE from ISP&lt;br&gt;&lt;font style="font-size: 16px;" color="#05F034"&gt;&lt;b&gt;LAN&lt;/b&gt;&lt;/font&gt; - 192.168.1.1/24 (trusted)&lt;br&gt;&lt;font style="font-size: 16px;" color="#F2A541"&gt;&lt;b&gt;GUEST (VLAN 50)&lt;/b&gt;&lt;/font&gt; - 192.168.50.1/24' style="text;strokeColor=none;fillColor=none;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="520" y="450" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-8" value="WAN" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF0000;strokeWidth=4;fontFamily=Helvetica;fontSize=14;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=none;endFill=0;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="cp-3" target="cp-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-9" value='&lt;font style="font-size: 18px;" color="#FFFFFF"&gt;&lt;b&gt;Managed Switch&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 13px;" color="#E4FDE1"&gt;Trunk: VLAN 1 (LAN) + VLAN 50 (GUEST)&lt;/font&gt;' style="fontColor=#FFFFFF;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#028090;strokeColor=#FFFFFF;gradientColor=none;strokeWidth=2;shape=mxgraph.networks.switch;fontFamily=Helvetica;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="500" y="620" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-10" value="802.1Q trunk" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#05F034;strokeWidth=4;fontFamily=Helvetica;fontSize=14;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=none;endFill=0;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="cp-5" target="cp-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-11" value="GUEST VLAN 50 - Captive Portal Zone  (192.168.50.0/24)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#F2A541;strokeWidth=3;dashed=1;dashPattern=12 8;fontColor=#F2A541;fontSize=20;fontStyle=1;align=left;verticalAlign=top;spacingLeft=12;spacingTop=6;" parent="1" vertex="1">
+          <mxGeometry x="40" y="760" width="640" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-12" value='&lt;font style="font-size: 18px;" color="#FFFFFF"&gt;&lt;b&gt;Wi-Fi AP&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 13px;" color="#E4FDE1"&gt;SSID "Guest" tagged VLAN 50&lt;/font&gt;' style="fontColor=#FFFFFF;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#F2A541;strokeColor=#FFFFFF;gradientColor=none;strokeWidth=2;shape=mxgraph.networks.wireless_hub;fontFamily=Helvetica;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="120" y="820" width="110" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-13" value="VLAN 50" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#F2A541;strokeWidth=3;fontFamily=Helvetica;fontSize=14;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=none;endFill=0;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="cp-9" target="cp-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-14" value='&lt;font style="font-size: 15px;" color="#FFFFFF"&gt;Guest Laptop&lt;/font&gt;' style="fontColor=#FFFFFF;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#6881B3;gradientColor=none;strokeWidth=2;shape=mxgraph.networks.laptop;fontFamily=Helvetica;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="90" y="1010" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-15" value='&lt;font style="font-size: 15px;" color="#FFFFFF"&gt;Guest Phone&lt;/font&gt;' style="fontColor=#FFFFFF;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#6881B3;gradientColor=none;strokeWidth=2;shape=mxgraph.networks.mobile;fontFamily=Helvetica;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="230" y="1000" width="50" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-16" value='&lt;font style="font-size: 15px;" color="#FFFFFF"&gt;Guest Tablet&lt;/font&gt;' style="fontColor=#FFFFFF;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#6881B3;gradientColor=none;strokeWidth=2;shape=mxgraph.networks.tablet;fontFamily=Helvetica;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="330" y="1005" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-17" value="" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#F2A541;strokeWidth=2;fontFamily=Helvetica;fontSize=14;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=none;endFill=0;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;dashed=1;dashPattern=8 8;" parent="1" source="cp-12" target="cp-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-18" value="" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#F2A541;strokeWidth=2;fontFamily=Helvetica;fontSize=14;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=none;endFill=0;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;dashed=1;dashPattern=8 8;" parent="1" source="cp-12" target="cp-15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-19" value="" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#F2A541;strokeWidth=2;fontFamily=Helvetica;fontSize=14;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=none;endFill=0;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;dashed=1;dashPattern=8 8;" parent="1" source="cp-12" target="cp-16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-20" value='&lt;font style="font-size: 15px;" color="#FFFFFF"&gt;&lt;b&gt;Captive portal rules on GUEST interface&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 13px;" color="#E4FDE1"&gt;- Zone bound to GUEST interface&lt;br&gt;- Unauthenticated: only DNS + DHCP + portal (TCP 8000/8001)&lt;br&gt;- Authenticated: pass to WAN only&lt;br&gt;- Block RFC1918 -&gt; LAN (client isolation)&lt;br&gt;- Idle timeout 30 min / hard timeout 8 h&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0E3A4A;strokeColor=#F2A541;strokeWidth=2;fontColor=#FFFFFF;fontSize=16;arcSize=12;" parent="1" vertex="1">
+          <mxGeometry x="430" y="800" width="230" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-21" value='&lt;font style="font-size: 14px;" color="#F2A541"&gt;Guest traffic is allowed to the Internet only.&lt;br&gt;No route to the trusted LAN.&lt;/font&gt;' style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="430" y="1020" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-22" value="LAN VLAN 1 - Trusted  (192.168.1.0/24)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#05F034;strokeWidth=3;dashed=1;dashPattern=12 8;fontColor=#05F034;fontSize=20;fontStyle=1;align=left;verticalAlign=top;spacingLeft=12;spacingTop=6;" parent="1" vertex="1">
+          <mxGeometry x="720" y="760" width="540" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-23" value='&lt;font style="font-size: 16px;" color="#FFFFFF"&gt;&lt;b&gt;Auth Server (optional)&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 13px;" color="#E4FDE1"&gt;FreeRADIUS / LDAP / AD&lt;br&gt;192.168.1.10&lt;/font&gt;' style="fontColor=#FFFFFF;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#028090;strokeColor=#FFFFFF;gradientColor=none;strokeWidth=2;shape=mxgraph.networks.server;fontFamily=Helvetica;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="800" y="820" width="90" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-24" value="VLAN 1" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#05F034;strokeWidth=3;fontFamily=Helvetica;fontSize=14;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=none;endFill=0;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="cp-9" target="cp-23" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-25" value="RADIUS 1812/1813 (auth + accounting)" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#B388FF;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=block;endFill=1;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;dashed=1;dashPattern=8 8;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.3;entryDx=0;entryDy=0;" parent="1" source="cp-5" target="cp-23" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1290" y="440" />
+              <mxPoint x="1290" y="850" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cp-26" value='&lt;font style="font-size: 15px;" color="#FFFFFF"&gt;Admin PC&lt;/font&gt;' style="fontColor=#FFFFFF;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#6881B3;gradientColor=none;strokeWidth=2;shape=mxgraph.networks.pc;fontFamily=Helvetica;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="1000" y="830" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-27" value='&lt;font style="font-size: 15px;" color="#FFFFFF"&gt;NAS / Internal Services&lt;/font&gt;' style="fontColor=#FFFFFF;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#6881B3;gradientColor=none;strokeWidth=2;shape=mxgraph.networks.storage;fontFamily=Helvetica;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="1130" y="830" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-28" value="" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#05F034;strokeWidth=2;fontFamily=Helvetica;fontSize=14;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=none;endFill=0;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;dashed=1;dashPattern=8 8;" parent="1" source="cp-23" target="cp-26" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-29" value="" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#05F034;strokeWidth=2;fontFamily=Helvetica;fontSize=14;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=none;endFill=0;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;dashed=1;dashPattern=8 8;" parent="1" source="cp-23" target="cp-27" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-30" value='&lt;font style="font-size: 15px;" color="#FFFFFF"&gt;&lt;b&gt;Trusted LAN&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 13px;" color="#E4FDE1"&gt;- Full access to Internet and internal services&lt;br&gt;- Captive portal NOT enabled on this interface&lt;br&gt;- Reaches OPNsense GUI on 443 for administration&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0E3A4A;strokeColor=#05F034;strokeWidth=2;fontColor=#FFFFFF;fontSize=16;arcSize=12;" parent="1" vertex="1">
+          <mxGeometry x="800" y="1000" width="430" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-31" value='&lt;font style="font-size: 16px;" color="#FFFFFF"&gt;&lt;b&gt;Legend&lt;/b&gt;&lt;/font&gt;' style="text;strokeColor=none;fillColor=none;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="40" y="1200" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-32" value='&lt;font style="font-size: 13px;" color="#E4FDE1"&gt;Red = WAN   Green = trusted LAN   Orange = guest/captive portal   Purple dashed = RADIUS backchannel&lt;/font&gt;' style="text;strokeColor=none;fillColor=none;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="40" y="1225" width="900" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Auth_Flow" id="cp-60">
+    <mxGraphModel dx="1400" dy="900" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="#114B5F" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cp-33" value='&lt;font style="font-size: 30px;" color="#FFFFFF"&gt;&lt;b&gt;OPNsense Captive Portal - Client Authentication Flow&lt;/b&gt;&lt;/font&gt;' style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="40" y="10" width="1200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-34" value='&lt;font style="font-size: 15px;" color="#E4FDE1"&gt;What happens from the moment a guest device joins the SSID until it has Internet access.&lt;/font&gt;' style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="40" y="60" width="1200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-35" value='&lt;font style="font-size: 20px;" color="#F2A541"&gt;&lt;b&gt;Guest Client&lt;/b&gt;&lt;/font&gt;' style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="60" y="110" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-36" value='&lt;font style="font-size: 20px;" color="#F45B69"&gt;&lt;b&gt;OPNsense (GUEST interface)&lt;/b&gt;&lt;/font&gt;' style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="460" y="110" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-37" value='&lt;font style="font-size: 20px;" color="#B388FF"&gt;&lt;b&gt;Auth Backend&lt;/b&gt;&lt;/font&gt;' style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="860" y="110" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-38" value='&lt;font style="font-size: 16px;" color="#FFFFFF"&gt;&lt;b&gt;1. Join Guest SSID&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 13px;" color="#E4FDE1"&gt;Device associates with the AP on VLAN 50&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2A541;strokeColor=#E4FDE1;strokeWidth=2;fontColor=#FFFFFF;fontSize=14;arcSize=12;" parent="1" vertex="1">
+          <mxGeometry x="60" y="170" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-39" value='&lt;font style="font-size: 16px;" color="#FFFFFF"&gt;&lt;b&gt;2. DHCP lease&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 13px;" color="#E4FDE1"&gt;192.168.50.x handed out by OPNsense DHCPv4. DNS = 192.168.50.1 (Unbound)&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F45B69;strokeColor=#E4FDE1;strokeWidth=2;fontColor=#FFFFFF;fontSize=14;arcSize=12;" parent="1" vertex="1">
+          <mxGeometry x="460" y="270" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-40" value="DHCP Discover / Offer" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#F2A541;strokeWidth=3;fontFamily=Helvetica;fontSize=12;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=block;endFill=1;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="cp-38" target="cp-39" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-41" value='&lt;font style="font-size: 16px;" color="#FFFFFF"&gt;&lt;b&gt;3. First web request&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 12px;" color="#E4FDE1"&gt;Browser or OS connectivity check (captive.apple.com, connectivitycheck.gstatic.com, msftconnecttest.com)&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2A541;strokeColor=#E4FDE1;strokeWidth=2;fontColor=#FFFFFF;fontSize=14;arcSize=12;" parent="1" vertex="1">
+          <mxGeometry x="60" y="370" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-42" value='&lt;font style="font-size: 16px;" color="#FFFFFF"&gt;&lt;b&gt;4. Intercept + redirect&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 12px;" color="#E4FDE1"&gt;Unauthenticated MAC/IP: ipfw diverts TCP 80 to portal on :8000 (HTTPS :8001). Client is sent a 302 to the login page.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F45B69;strokeColor=#E4FDE1;strokeWidth=2;fontColor=#FFFFFF;fontSize=14;arcSize=12;" parent="1" vertex="1">
+          <mxGeometry x="460" y="470" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-43" value="HTTP GET" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#F2A541;strokeWidth=3;fontFamily=Helvetica;fontSize=12;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=block;endFill=1;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="cp-41" target="cp-42" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-44" value='&lt;font style="font-size: 16px;" color="#FFFFFF"&gt;&lt;b&gt;5. Login page shown&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 12px;" color="#E4FDE1"&gt;OS detects captive network and opens the sign-in sheet. Guest enters voucher / credentials or accepts terms.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2A541;strokeColor=#E4FDE1;strokeWidth=2;fontColor=#FFFFFF;fontSize=14;arcSize=12;" parent="1" vertex="1">
+          <mxGeometry x="60" y="570" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-45" value="302 -&gt; https://portal:8001/" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#F45B69;strokeWidth=3;fontFamily=Helvetica;fontSize=12;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=block;endFill=1;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="cp-42" target="cp-44" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-46" value='&lt;font style="font-size: 16px;" color="#FFFFFF"&gt;&lt;b&gt;6. Validate credentials&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 12px;" color="#E4FDE1"&gt;Zone authentication method decides: Voucher (local DB), Local users, RADIUS, LDAP, or none (splash only).&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F45B69;strokeColor=#E4FDE1;strokeWidth=2;fontColor=#FFFFFF;fontSize=14;arcSize=12;" parent="1" vertex="1">
+          <mxGeometry x="460" y="670" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-47" value="POST user / password / voucher" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#F2A541;strokeWidth=3;fontFamily=Helvetica;fontSize=12;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=block;endFill=1;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="cp-44" target="cp-46" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-48" value='&lt;font style="font-size: 16px;" color="#FFFFFF"&gt;&lt;b&gt;RADIUS / LDAP (optional)&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 12px;" color="#E4FDE1"&gt;Access-Request -&gt; Access-Accept. Session-Timeout and bandwidth attributes can be returned.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5E35B1;strokeColor=#E4FDE1;strokeWidth=2;fontColor=#FFFFFF;fontSize=14;arcSize=12;" parent="1" vertex="1">
+          <mxGeometry x="860" y="670" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-49" value="UDP 1812" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#B388FF;strokeWidth=3;fontFamily=Helvetica;fontSize=12;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=block;endFill=1;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;dashed=1;dashPattern=8 8;" parent="1" source="cp-46" target="cp-48" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-50" value='&lt;font style="font-size: 16px;" color="#FFFFFF"&gt;&lt;b&gt;7. Session created&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 12px;" color="#E4FDE1"&gt;Client MAC + IP added to the allowed table. Firewall now passes guest -&gt; WAN. Accounting start sent if RADIUS.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F45B69;strokeColor=#E4FDE1;strokeWidth=2;fontColor=#FFFFFF;fontSize=14;arcSize=12;" parent="1" vertex="1">
+          <mxGeometry x="460" y="770" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-51" value="accept" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#05F034;strokeWidth=3;fontFamily=Helvetica;fontSize=12;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=block;endFill=1;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="cp-46" target="cp-50" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-52" value='&lt;font style="font-size: 16px;" color="#FFFFFF"&gt;&lt;b&gt;8. Online&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 13px;" color="#E4FDE1"&gt;Redirected to the original URL or the configured landing page. Normal browsing works.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1B7F3B;strokeColor=#E4FDE1;strokeWidth=2;fontColor=#FFFFFF;fontSize=14;arcSize=12;" parent="1" vertex="1">
+          <mxGeometry x="60" y="870" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-53" value="Session OK" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#05F034;strokeWidth=3;fontFamily=Helvetica;fontSize=12;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=block;endFill=1;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="cp-50" target="cp-52" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-54" value='&lt;font style="font-size: 16px;" color="#FFFFFF"&gt;&lt;b&gt;9. Session ends&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 12px;" color="#E4FDE1"&gt;Idle timeout, hard timeout, voucher expiry, or manual logout (Services &gt; Captive Portal &gt; Sessions). Client is back to step 4.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7A1F2B;strokeColor=#E4FDE1;strokeWidth=2;fontColor=#FFFFFF;fontSize=14;arcSize=12;" parent="1" vertex="1">
+          <mxGeometry x="460" y="970" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-55" value="timeout / logout" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF0000;strokeWidth=3;fontFamily=Helvetica;fontSize=12;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=block;endFill=1;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;dashed=1;dashPattern=8 8;" parent="1" source="cp-52" target="cp-54" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-56" value="" style="edgeStyle=none;shape=connector;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF0000;strokeWidth=2;fontFamily=Helvetica;fontSize=14;fontColor=#FFFFFF;labelBackgroundColor=#114B5F;endArrow=block;endFill=1;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;dashed=1;dashPattern=8 8;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="cp-54" target="cp-42" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="820" y="1005.0" />
+              <mxPoint x="820" y="505.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cp-57" value='&lt;font style="font-size: 17px;" color="#FFFFFF"&gt;&lt;b&gt;OPNsense setup checklist&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 13px;" color="#E4FDE1"&gt;1. Interfaces &gt; Assignments: add VLAN 50 on the LAN parent, name it GUEST&lt;br&gt;2. Interfaces &gt; GUEST: static 192.168.50.1/24&lt;br&gt;3. Services &gt; DHCPv4 &gt; GUEST: range 192.168.50.100-250&lt;br&gt;4. Services &gt; Captive Portal &gt; Administration: new zone&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;- Interfaces: GUEST&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;- Authenticate using: Voucher / Local / RADIUS&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;- Idle / hard timeout, concurrent logins&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;- Allowed addresses: DNS, NTP, update servers&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;- Template: custom HTML/CSS zip (optional)&lt;br&gt;5. System &gt; Trust: cert for portal HTTPS (:8001)&lt;br&gt;6. Firewall &gt; Rules &gt; GUEST:&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;- Block GUEST net -&gt; RFC1918 / LAN net&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;- Pass GUEST net -&gt; any (Internet)&lt;br&gt;7. Services &gt; Captive Portal &gt; Vouchers: create a provider + roll&lt;br&gt;8. Test with a phone on the Guest SSID&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0E3A4A;strokeColor=#E4FDE1;strokeWidth=2;fontColor=#FFFFFF;fontSize=16;arcSize=12;" parent="1" vertex="1">
+          <mxGeometry x="860" y="780" width="360" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="cp-58" value='&lt;font style="font-size: 17px;" color="#FFFFFF"&gt;&lt;b&gt;Gotchas&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 13px;" color="#E4FDE1"&gt;- HTTPS sites cannot be redirected; rely on OS captive detection&lt;br&gt;- Whitelist the portal cert CA or use a public cert to avoid warnings&lt;br&gt;- Unbound must answer on the GUEST interface or detection fails&lt;br&gt;- Captive portal uses :8000 / :8001 - do not reuse for other services&lt;br&gt;- MAC randomization on phones means a new session per connect&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0E3A4A;strokeColor=#F2A541;strokeWidth=2;fontColor=#FFFFFF;fontSize=16;arcSize=12;" parent="1" vertex="1">
+          <mxGeometry x="860" y="1230" width="360" height="200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
